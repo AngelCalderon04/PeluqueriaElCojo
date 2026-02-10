@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Modelos\Afeitado.cs" />
     <Compile Include="Modelos\Cliente.cs" />
+    <Compile Include="Modelos\CorteCejas.cs" />
     <Compile Include="Modelos\CorteNormal.cs" />
     <Compile Include="Modelos\Degradado.cs" />
     <Compile Include="Modelos\IFacturable.cs" />
