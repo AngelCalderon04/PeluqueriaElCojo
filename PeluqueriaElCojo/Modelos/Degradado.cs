@@ -4,7 +4,7 @@
     {
         public int NivelComplejidad { get; set; }
 
-        public Degradado(int nivel) : base("Degradado", 200, 35)
+        public Degradado(int nivel) : base("Degradado", 200, 35) 
         {
             NivelComplejidad = nivel;
         }
