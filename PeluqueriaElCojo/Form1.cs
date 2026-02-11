@@ -21,7 +21,17 @@ namespace PeluqueriaElCojo
         public peluqueriaelcojo()
         {
             InitializeComponent();
+
+            txtNombre.Text = "Nombre del cliente";
+            txtNombre.ForeColor = Color.Gray;
+
+            txtTelefono.Text = "Telefono cliente";
+            txtTelefono.ForeColor = Color.Gray;
+
+
         }
+
+
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
@@ -143,6 +153,44 @@ namespace PeluqueriaElCojo
 
         private void numNivel_ValueChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void txtNombre_Enter(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "Nombre cliente")
+            {
+                txtNombre.Text = "";
+                txtNombre.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                txtNombre.Text = "Nombre del cliente";
+                txtNombre.ForeColor = Color.Gray;
+            }
+
+        }
+
+        private void txtTelefono_Enter(object sender, EventArgs e)
+        {
+            if (txtTelefono.Text == "Telefono Cliente")
+            {
+                txtTelefono.Text = "";
+                txtTelefono.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTelefono_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                txtTelefono.Text = "Telefono cliente";
+                txtTelefono.ForeColor = Color.Gray;
+            }
 
         }
     }

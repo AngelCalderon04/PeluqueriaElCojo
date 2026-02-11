@@ -65,6 +65,8 @@
             this.txtNombre.Size = new System.Drawing.Size(201, 31);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.Text = "";
+            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
+            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // txtTelefono
             // 
@@ -72,6 +74,8 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(201, 34);
             this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.Enter += new System.EventHandler(this.txtTelefono_Enter);
+            this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
             // 
             // btnAgregarCliente
             // 
@@ -174,7 +178,7 @@
             this.btnCobrar.ForeColor = System.Drawing.Color.White;
             this.btnCobrar.Location = new System.Drawing.Point(57, 321);
             this.btnCobrar.Name = "btnCobrar";
-            this.btnCobrar.Size = new System.Drawing.Size(125, 36);
+            this.btnCobrar.Size = new System.Drawing.Size(125, 41);
             this.btnCobrar.TabIndex = 12;
             this.btnCobrar.Text = "COBRAR";
             this.btnCobrar.UseVisualStyleBackColor = false;
@@ -190,13 +194,13 @@
             this.txtRecibo.Multiline = true;
             this.txtRecibo.Name = "txtRecibo";
             this.txtRecibo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRecibo.Size = new System.Drawing.Size(398, 387);
+            this.txtRecibo.Size = new System.Drawing.Size(471, 444);
             this.txtRecibo.TabIndex = 13;
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(131, 402);
+            this.lblTotal.Location = new System.Drawing.Point(133, 457);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(128, 28);
             this.lblTotal.TabIndex = 14;
@@ -240,7 +244,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(598, 71);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(410, 436);
+            this.groupBox3.Size = new System.Drawing.Size(491, 488);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "FACTURA";
