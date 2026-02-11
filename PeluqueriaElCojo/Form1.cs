@@ -158,10 +158,11 @@ namespace PeluqueriaElCojo
 
         private void txtNombre_Enter(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "Nombre cliente")
+            if (txtNombre.ForeColor == Color.Gray)
             {
                 txtNombre.Text = "";
                 txtNombre.ForeColor = Color.Black;
+                txtNombre.SelectionStart = 0;
             }
         }
 
@@ -177,10 +178,11 @@ namespace PeluqueriaElCojo
 
         private void txtTelefono_Enter(object sender, EventArgs e)
         {
-            if (txtTelefono.Text == "Telefono Cliente")
+            if (txtTelefono.ForeColor == Color.Gray)
             {
                 txtTelefono.Text = "";
                 txtTelefono.ForeColor = Color.Black;
+                txtTelefono.SelectionStart = 0;
             }
         }
 
