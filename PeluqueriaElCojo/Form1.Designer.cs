@@ -167,6 +167,7 @@
             this.btnCobrar.TabIndex = 12;
             this.btnCobrar.Text = "COBRAR";
             this.btnCobrar.UseVisualStyleBackColor = true;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
             // 
             // txtRecibo
             // 

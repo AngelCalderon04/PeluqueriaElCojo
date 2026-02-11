@@ -45,5 +45,11 @@ namespace PeluqueriaElCojo
             if (lstClientes.SelectedIndex >= 0)
                 _clienteActual = _clientes[lstClientes.SelectedIndex];
         }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            if (lstClientes.SelectedIndex >= 0)
+                _clienteActual = _clientes[lstClientes.SelectedIndex];
+        }
     }
 }
