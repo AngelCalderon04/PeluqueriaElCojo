@@ -4,7 +4,7 @@ namespace PeluqueriaElcojo.Atributos
 
 {
     public class LongitudAttribute : ValidacionAttribute
-
+         
     { 
       public int Min {  get; }
         public int Max { get;  }
