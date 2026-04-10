@@ -2,8 +2,11 @@
 
 namespace PeluqueriaElCojo.Modelos
 {
-    public class Cliente
+    public class Cliente // clase que representa un cliente
     {
+        public Cliente() // ✅ AQUÍ SÍ
+        {
+        }
         private string _nombre;
         private string _telefono;
         private int _visitas;
@@ -49,10 +52,15 @@ namespace PeluqueriaElCojo.Modelos
         public void RegistrarVisita()
         {
             _visitas++;
-            if (_visitas >= 10) Tipo = TipoCliente.VIP;
-            else if (_visitas >= 3) Tipo = TipoCliente.Regular;
-        }
+            // aumenta el contador
 
+            if (_visitas >= 10) Tipo = TipoCliente.VIP;
+            // si tiene 10 o mas visitas pasa a vip
+
+            else if (_visitas >= 3) Tipo = TipoCliente.Regular;
+            // si tiene 3 o mas visitas pasa a regular
+
+        }
         public decimal ObtenerDescuento()
         {
             switch (Tipo)

@@ -19,6 +19,8 @@
         }
 
         public virtual string GenerarLineaRecibo()
+        // metodo que genera la linea del recibo (puede ser modificado en clases hijas)
+
         {
             return string.Format("{0,-20} RD${1:N0}", Nombre, CalcularPrecio());
         }

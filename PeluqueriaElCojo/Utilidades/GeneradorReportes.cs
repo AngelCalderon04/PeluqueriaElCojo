@@ -136,4 +136,4 @@ namespace PeluqueriaElCojo.Utilidades
         public int Ancho { get; set; }
         public string Formato { get; set; }
     }
-}  
+}

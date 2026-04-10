@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PeluqueriaElCojo.Datos;
 using PeluqueriaElCojo.Modelos;
 
 namespace PeluqueriaElCojo
@@ -21,6 +22,16 @@ namespace PeluqueriaElCojo
         public peluqueriaelcojo()
         {
             InitializeComponent();
+
+            string mensaje;
+            if (Conexion.ProbarConexion(out mensaje))
+            {
+                MessageBox.Show(mensaje, "Conexión OK");
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Error de conexión");
+            }
 
             txtNombre.Text = "Nombre del cliente";
             txtNombre.ForeColor = Color.Gray;
