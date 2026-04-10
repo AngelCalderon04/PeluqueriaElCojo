@@ -16,7 +16,7 @@ namespace PeluqueriaElCojo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new peluqueriaelcojo());
+            Application.Run(new Principal());
         }
     }
 }

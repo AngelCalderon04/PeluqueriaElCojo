@@ -12,7 +12,7 @@ namespace PeluqueriaElCojo.Modelos
         private int _visitas;
         private static int _contadorId = 0;
 
-        public int Id { get; private set; }
+        public int Id { get;  set; }
 
         public string Nombre
         {
@@ -38,7 +38,11 @@ namespace PeluqueriaElCojo.Modelos
         }
 
         public TipoCliente Tipo { get; set; }
-        public int Visitas { get { return _visitas; } }
+        public int Visitas
+        {
+            get { return _visitas; }
+            set { _visitas = value; }
+        }
 
         public Cliente(string nombre, string telefono)
         {
