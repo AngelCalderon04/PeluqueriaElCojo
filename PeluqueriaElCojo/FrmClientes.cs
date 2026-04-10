@@ -154,6 +154,18 @@ namespace PeluqueriaElCojo
             txtNombre.Text = clienteActual.Nombre;
             txtTelefono.Text = clienteActual.Telefono; 
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+            txtTelefono.Clear();
+
+            clienteActual = null;
+
+            dgvClientes.ClearSelection();
+
+            txtNombre.Focus();
+        }
     }
     
 }

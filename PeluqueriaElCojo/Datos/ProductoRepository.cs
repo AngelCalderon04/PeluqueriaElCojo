@@ -7,6 +7,7 @@ namespace PeluqueriaElCojo.Datos
 {
     public class ProductoRepository
     {
+      
         public List<Producto> ObtenerTodos()
         {
             List<Producto> lista = new List<Producto>();
@@ -110,6 +111,52 @@ namespace PeluqueriaElCojo.Datos
 
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }
+            }
+        }
+
+        public void Actualizar(Producto p)
+        {
+            using (SqlConnection conn = Conexion.ObtenerConexion())
+            {
+                conn.Open();
+
+                string query = @"UPDATE Productos SET 
+                            Codigo = @Codigo,
+                            Nombre = @Nombre,
+                            Categoria = @Categoria,
+                            Precio = @Precio,
+                            Costo = @Costo,
+                            Stock = @Stock,
+                            StockMinimo = @StockMinimo
+                         WHERE Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Codigo", p.Codigo);
+                cmd.Parameters.AddWithValue("@Nombre", p.Nombre);
+                cmd.Parameters.AddWithValue("@Categoria", (int)p.Categoria);
+                cmd.Parameters.AddWithValue("@Precio", p.Precio);
+                cmd.Parameters.AddWithValue("@Costo", p.Costo);
+                cmd.Parameters.AddWithValue("@Stock", p.Stock);
+                cmd.Parameters.AddWithValue("@StockMinimo", p.StockMinimo);
+                cmd.Parameters.AddWithValue("@Id", p.Id);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void Eliminar(int id)
+        {
+            using (SqlConnection conn = Conexion.ObtenerConexion())
+            {
+                conn.Open();
+
+                string query = "UPDATE Productos SET Activo = 0 WHERE Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                cmd.ExecuteNonQuery();
             }
         }
     }

@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -199,6 +201,22 @@ namespace PeluqueriaElCojo
             txtCedula.Text = empleadoActual.Cedula;
             txtTelefono.Text = empleadoActual.Telefono;
             cmbRol.SelectedItem = empleadoActual.Rol;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+            txtApodo.Clear();
+            txtCedula.Clear();
+            txtTelefono.Clear();
+
+            cmbRol.SelectedIndex = 0;
+
+            empleadoActual = null;
+
+            dgvEmpleados.ClearSelection();
+
+            txtNombre.Focus();
         }
     }
     

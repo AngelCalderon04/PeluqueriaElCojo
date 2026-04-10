@@ -18,58 +18,27 @@ namespace PeluqueriaElCojo
         private List<Cliente> _clientes = new List<Cliente>();
         private List<Servicio> _servicios = new List<Servicio>();
         private Cliente _clienteActual = null;
+        private ClienteRepository _clienteRepo = new ClienteRepository();
 
         public peluqueriaelcojo()
         {
             InitializeComponent();
 
-            string mensaje;
-            if (Conexion.ProbarConexion(out mensaje))
-            {
-                MessageBox.Show(mensaje, "Conexión OK");
-            }
-            else
-            {
-                MessageBox.Show(mensaje, "Error de conexión");
-            }
-
-            txtNombre.Text = "Nombre del cliente";
-            txtNombre.ForeColor = Color.Gray;
-
-            txtTelefono.Text = "Telefono cliente";
-            txtTelefono.ForeColor = Color.Gray;
-
 
         }
 
 
 
-        private void btnAgregarCliente_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Cliente c = new Cliente(txtNombre.Text, txtTelefono.Text);
-                _clientes.Add(c);
-                lstClientes.Items.Add(c);
-                txtNombre.Clear();
-                txtTelefono.Clear();
-            }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+       
 
-        }
-
-        private void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstClientes.SelectedIndex >= 0)
-                _clienteActual = _clientes[lstClientes.SelectedIndex];
-        }
-
+       
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-
+            if (_clienteActual == null)
+            {
+                MessageBox.Show("Selecciona un cliente");
+                return;
+            }
 
             try
             {
@@ -97,6 +66,13 @@ namespace PeluqueriaElCojo
                 MessageBox.Show("ERROR REAL: " + ex.Message);
             }
 
+            if (cmbClientes.SelectedItem == null)
+            {
+                MessageBox.Show("Selecciona un cliente");
+                return;
+            }
+
+            _clienteActual = (Cliente)cmbClientes.SelectedItem;
 
         }
 
@@ -159,7 +135,7 @@ namespace PeluqueriaElCojo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            cmbClientes.DataSource = _clienteRepo.ObtenerTodos();
         }
 
         private void numNivel_ValueChanged(object sender, EventArgs e)
@@ -167,42 +143,39 @@ namespace PeluqueriaElCojo
 
         }
 
+       
+
+       
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtNombre_Enter(object sender, EventArgs e)
         {
-            if (txtNombre.ForeColor == Color.Gray)
-            {
-                txtNombre.Text = "";
-                txtNombre.ForeColor = Color.Black;
-                txtNombre.SelectionStart = 0;
-            }
+
         }
 
         private void txtNombre_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                txtNombre.Text = "Nombre del cliente";
-                txtNombre.ForeColor = Color.Gray;
-            }
 
         }
 
-        private void txtTelefono_Enter(object sender, EventArgs e)
+        private void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (txtTelefono.ForeColor == Color.Gray)
-            {
-                txtTelefono.Text = "";
-                txtTelefono.ForeColor = Color.Black;
-                txtTelefono.SelectionStart = 0;
-            }
+
         }
 
-        private void txtTelefono_Leave(object sender, EventArgs e)
+        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            if (cmbClientes.SelectedItem != null)
             {
-                txtTelefono.Text = "Telefono cliente";
-                txtTelefono.ForeColor = Color.Gray;
+                _clienteActual = (Cliente)cmbClientes.SelectedItem;
+
+                lstClientes.Items.Clear(); // limpia lista
+
+                lstClientes.Items.Add(_clienteActual); // agrega solo el seleccionado
             }
 
         }

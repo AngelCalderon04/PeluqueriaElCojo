@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txtNombre = new System.Windows.Forms.RichTextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.btnAgregarCliente = new System.Windows.Forms.Button();
-            this.lstClientes = new System.Windows.Forms.ListBox();
             this.chkCorteNormal = new System.Windows.Forms.CheckBox();
             this.chkDegradado = new System.Windows.Forms.CheckBox();
             this.numNivel = new System.Windows.Forms.NumericUpDown();
@@ -46,6 +42,9 @@
             this.CLIENTES = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lstClientes = new System.Windows.Forms.ListBox();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numNivel)).BeginInit();
             this.CLIENTES.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,45 +56,6 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(9, 43);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(201, 31);
-            this.txtNombre.TabIndex = 2;
-            this.txtNombre.Text = "";
-            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
-            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(9, 107);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(201, 34);
-            this.txtTelefono.TabIndex = 3;
-            this.txtTelefono.Enter += new System.EventHandler(this.txtTelefono_Enter);
-            this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
-            // 
-            // btnAgregarCliente
-            // 
-            this.btnAgregarCliente.Location = new System.Drawing.Point(46, 179);
-            this.btnAgregarCliente.Name = "btnAgregarCliente";
-            this.btnAgregarCliente.Size = new System.Drawing.Size(121, 48);
-            this.btnAgregarCliente.TabIndex = 4;
-            this.btnAgregarCliente.Text = "Agregar";
-            this.btnAgregarCliente.UseVisualStyleBackColor = true;
-            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
-            // 
-            // lstClientes
-            // 
-            this.lstClientes.FormattingEnabled = true;
-            this.lstClientes.ItemHeight = 28;
-            this.lstClientes.Location = new System.Drawing.Point(9, 266);
-            this.lstClientes.Name = "lstClientes";
-            this.lstClientes.Size = new System.Drawing.Size(230, 144);
-            this.lstClientes.TabIndex = 5;
-            this.lstClientes.SelectedIndexChanged += new System.EventHandler(this.lstClientes_SelectedIndexChanged);
             // 
             // chkCorteNormal
             // 
@@ -208,10 +168,9 @@
             // 
             // CLIENTES
             // 
+            this.CLIENTES.Controls.Add(this.comboBox1);
+            this.CLIENTES.Controls.Add(this.cmbClientes);
             this.CLIENTES.Controls.Add(this.lstClientes);
-            this.CLIENTES.Controls.Add(this.btnAgregarCliente);
-            this.CLIENTES.Controls.Add(this.txtTelefono);
-            this.CLIENTES.Controls.Add(this.txtNombre);
             this.CLIENTES.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CLIENTES.Location = new System.Drawing.Point(3, 71);
             this.CLIENTES.Name = "CLIENTES";
@@ -249,6 +208,33 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "FACTURA";
             // 
+            // lstClientes
+            // 
+            this.lstClientes.FormattingEnabled = true;
+            this.lstClientes.ItemHeight = 28;
+            this.lstClientes.Location = new System.Drawing.Point(25, 143);
+            this.lstClientes.Name = "lstClientes";
+            this.lstClientes.Size = new System.Drawing.Size(230, 116);
+            this.lstClientes.TabIndex = 5;
+            this.lstClientes.SelectedIndexChanged += new System.EventHandler(this.lstClientes_SelectedIndexChanged);
+            // 
+            // cmbClientes
+            // 
+            this.cmbClientes.FormattingEnabled = true;
+            this.cmbClientes.Location = new System.Drawing.Point(25, 48);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(231, 36);
+            this.cmbClientes.TabIndex = 6;
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(35, 318);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(208, 36);
+            this.comboBox1.TabIndex = 7;
+            // 
             // peluqueriaelcojo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -266,7 +252,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numNivel)).EndInit();
             this.CLIENTES.ResumeLayout(false);
-            this.CLIENTES.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -278,10 +263,6 @@
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.RichTextBox txtNombre;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.Button btnAgregarCliente;
-        private System.Windows.Forms.ListBox lstClientes;
         private System.Windows.Forms.CheckBox chkCorteNormal;
         private System.Windows.Forms.CheckBox chkDegradado;
         private System.Windows.Forms.NumericUpDown numNivel;
@@ -294,6 +275,9 @@
         private System.Windows.Forms.GroupBox CLIENTES;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox cmbClientes;
+        private System.Windows.Forms.ListBox lstClientes;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
