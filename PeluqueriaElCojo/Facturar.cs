@@ -248,5 +248,10 @@ namespace PeluqueriaElCojo
                 _empleadoActual = (Empleado)cmbEmpleados.SelectedItem;
             }
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

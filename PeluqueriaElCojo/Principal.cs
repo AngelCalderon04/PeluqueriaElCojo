@@ -42,10 +42,27 @@ namespace PeluqueriaElCojo
             frm.ShowDialog();
         }
 
+       
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker4_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            FrmFacturacion frm = new FrmFacturacion();
+
+            peluqueriaelcojo frm = new peluqueriaelcojo();
             frm.ShowDialog();
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {  
         }
     }
 }

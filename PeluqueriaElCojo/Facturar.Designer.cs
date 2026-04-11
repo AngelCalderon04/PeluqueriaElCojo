@@ -48,6 +48,8 @@
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.cmbEmpleados = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numNivel)).BeginInit();
             this.CLIENTES.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -173,6 +175,7 @@
             // 
             // CLIENTES
             // 
+            this.CLIENTES.Controls.Add(this.label1);
             this.CLIENTES.Controls.Add(this.btnAgregar);
             this.CLIENTES.Controls.Add(this.numCantidad);
             this.CLIENTES.Controls.Add(this.cmbProductos);
@@ -220,7 +223,7 @@
             // 
             this.lstClientes.FormattingEnabled = true;
             this.lstClientes.ItemHeight = 28;
-            this.lstClientes.Location = new System.Drawing.Point(25, 143);
+            this.lstClientes.Location = new System.Drawing.Point(6, 132);
             this.lstClientes.Name = "lstClientes";
             this.lstClientes.Size = new System.Drawing.Size(230, 116);
             this.lstClientes.TabIndex = 5;
@@ -229,7 +232,7 @@
             // cmbClientes
             // 
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(25, 48);
+            this.cmbClientes.Location = new System.Drawing.Point(6, 52);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(231, 36);
             this.cmbClientes.TabIndex = 6;
@@ -238,26 +241,28 @@
             // cmbProductos
             // 
             this.cmbProductos.FormattingEnabled = true;
-            this.cmbProductos.Location = new System.Drawing.Point(35, 318);
+            this.cmbProductos.Location = new System.Drawing.Point(6, 315);
             this.cmbProductos.Name = "cmbProductos";
             this.cmbProductos.Size = new System.Drawing.Size(208, 36);
             this.cmbProductos.TabIndex = 7;
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(9, 382);
+            this.numCantidad.Location = new System.Drawing.Point(9, 375);
             this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(120, 34);
+            this.numCantidad.Size = new System.Drawing.Size(101, 34);
             this.numCantidad.TabIndex = 8;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(165, 372);
+            this.btnAgregar.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(116, 374);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(127, 52);
+            this.btnAgregar.Size = new System.Drawing.Size(127, 35);
             this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "AGREGAR";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
             // cmbEmpleados
@@ -269,12 +274,34 @@
             this.cmbEmpleados.TabIndex = 13;
             this.cmbEmpleados.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleados_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 28);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Productos";
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.Orange;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(272, 565);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(97, 34);
+            this.btnCerrar.TabIndex = 18;
+            this.btnCerrar.Text = "CERRAR";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // peluqueriaelcojo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1101, 630);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.CLIENTES);
@@ -286,6 +313,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numNivel)).EndInit();
             this.CLIENTES.ResumeLayout(false);
+            this.CLIENTES.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -316,6 +344,8 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.NumericUpDown numCantidad;
         private System.Windows.Forms.ComboBox cmbEmpleados;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
 

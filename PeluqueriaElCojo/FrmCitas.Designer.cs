@@ -38,40 +38,43 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.dgvCitas = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbClientes
             // 
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(211, 56);
+            this.cmbClientes.Location = new System.Drawing.Point(159, 68);
             this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(121, 28);
+            this.cmbClientes.Size = new System.Drawing.Size(251, 28);
             this.cmbClientes.TabIndex = 0;
             // 
             // cmbEmpleados
             // 
             this.cmbEmpleados.FormattingEnabled = true;
-            this.cmbEmpleados.Location = new System.Drawing.Point(217, 118);
+            this.cmbEmpleados.Location = new System.Drawing.Point(159, 118);
             this.cmbEmpleados.Name = "cmbEmpleados";
-            this.cmbEmpleados.Size = new System.Drawing.Size(121, 28);
+            this.cmbEmpleados.Size = new System.Drawing.Size(251, 28);
             this.cmbEmpleados.TabIndex = 1;
             // 
             // dtpFecha
             // 
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpFecha.Location = new System.Drawing.Point(144, 192);
+            this.dtpFecha.Location = new System.Drawing.Point(159, 175);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(188, 26);
+            this.dtpFecha.Size = new System.Drawing.Size(251, 26);
             this.dtpFecha.TabIndex = 2;
             this.dtpFecha.Value = new System.DateTime(2026, 4, 10, 21, 19, 24, 0);
             // 
             // lll
             // 
             this.lll.AutoSize = true;
+            this.lll.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lll.Location = new System.Drawing.Point(41, 70);
             this.lll.Name = "lll";
-            this.lll.Size = new System.Drawing.Size(76, 20);
+            this.lll.Size = new System.Drawing.Size(90, 26);
             this.lll.TabIndex = 4;
             this.lll.Text = "CLIENTE";
             this.lll.Click += new System.EventHandler(this.label1_Click);
@@ -79,66 +82,98 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 128);
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.Size = new System.Drawing.Size(104, 26);
             this.label2.TabIndex = 5;
             this.label2.Text = "BARBERO";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 183);
+            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 177);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 20);
+            this.label3.Size = new System.Drawing.Size(140, 26);
             this.label3.TabIndex = 6;
             this.label3.Text = "FECHA/HORA";
             // 
             // btnAgendar
             // 
-            this.btnAgendar.Location = new System.Drawing.Point(66, 292);
+            this.btnAgendar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAgendar.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgendar.Location = new System.Drawing.Point(96, 272);
             this.btnAgendar.Name = "btnAgendar";
-            this.btnAgendar.Size = new System.Drawing.Size(97, 31);
+            this.btnAgendar.Size = new System.Drawing.Size(122, 42);
             this.btnAgendar.TabIndex = 7;
             this.btnAgendar.Text = "AGENDAR";
-            this.btnAgendar.UseVisualStyleBackColor = true;
+            this.btnAgendar.UseVisualStyleBackColor = false;
             this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(193, 294);
+            this.btnEliminar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(96, 339);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(128, 27);
+            this.btnEliminar.Size = new System.Drawing.Size(130, 40);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "ELIMINAR";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(345, 294);
+            this.btnLimpiar.BackColor = System.Drawing.Color.Bisque;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(243, 272);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(118, 30);
+            this.btnLimpiar.Size = new System.Drawing.Size(134, 42);
             this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "LIMPIAR";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // dgvCitas
             // 
             this.dgvCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCitas.Location = new System.Drawing.Point(503, 33);
+            this.dgvCitas.Location = new System.Drawing.Point(473, 46);
             this.dgvCitas.Name = "dgvCitas";
             this.dgvCitas.RowHeadersWidth = 62;
             this.dgvCitas.RowTemplate.Height = 28;
-            this.dgvCitas.Size = new System.Drawing.Size(431, 324);
+            this.dgvCitas.Size = new System.Drawing.Size(581, 324);
             this.dgvCitas.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(238, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 26);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "CITAS";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(243, 339);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 40);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "CERRAR";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 447);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCitas);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
@@ -170,5 +205,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridView dgvCitas;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
