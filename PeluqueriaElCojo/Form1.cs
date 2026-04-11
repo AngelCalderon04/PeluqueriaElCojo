@@ -23,6 +23,7 @@ namespace PeluqueriaElCojo
         private List<string> _factura = new List<string>();
         private decimal _total = 0;
         private List<(Producto producto, int cantidad)> _productos = new List<(Producto, int)>();
+        private EmpleadoRepository _empleadoRepo = new EmpleadoRepository();
 
 
         public peluqueriaelcojo()
@@ -42,6 +43,12 @@ namespace PeluqueriaElCojo
             if (_clienteActual == null)
             {
                 MessageBox.Show("Selecciona un cliente");
+                return;
+            }
+
+            if (_empleadoActual == null)
+            {
+                MessageBox.Show("Selecciona un barbero");
                 return;
             }
 
@@ -142,6 +149,7 @@ namespace PeluqueriaElCojo
             sb.AppendLine(string.Format("║ TOTAL:           RD${0,8:N0} ║", baseI * 1.18m));
             sb.AppendLine("╚═══════════════════════════════╝");
             sb.AppendLine("      ¡Gracias por su visita!");
+            sb.AppendLine(string.Format("║ Barbero: {0,-20}║", _empleadoActual.Nombre));
 
             return sb.ToString();
 
@@ -163,7 +171,7 @@ namespace PeluqueriaElCojo
            
             cmbProductos.DataSource = _productoRepo.ObtenerTodos();
             cmbClientes.DataSource = _clienteRepo.ObtenerTodos();
-
+            cmbEmpleados.DataSource = _empleadoRepo.ObtenerTodos();
         }
 
         private void numNivel_ValueChanged(object sender, EventArgs e)
@@ -230,6 +238,15 @@ namespace PeluqueriaElCojo
         private void txtRecibo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private Empleado _empleadoActual = null;
+
+        private void cmbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEmpleados.SelectedItem != null)
+            {
+                _empleadoActual = (Empleado)cmbEmpleados.SelectedItem;
+            }
         }
     }
 }

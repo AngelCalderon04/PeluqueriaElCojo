@@ -119,5 +119,7 @@ namespace PeluqueriaElCojo.Modelos
             string display = string.IsNullOrEmpty(Apodo) ? Nombre : Apodo;
             return string.Format("[{0}] {1} ({2})", Id, display, Rol);
         }
+
+       
     }
 }

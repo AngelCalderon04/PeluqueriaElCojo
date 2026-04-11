@@ -47,6 +47,7 @@
             this.cmbProductos = new System.Windows.Forms.ComboBox();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.cmbEmpleados = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numNivel)).BeginInit();
             this.CLIENTES.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -139,7 +140,7 @@
             this.btnCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCobrar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.ForeColor = System.Drawing.Color.White;
-            this.btnCobrar.Location = new System.Drawing.Point(57, 321);
+            this.btnCobrar.Location = new System.Drawing.Point(57, 377);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(125, 41);
             this.btnCobrar.TabIndex = 12;
@@ -187,6 +188,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmbEmpleados);
             this.groupBox2.Controls.Add(this.btnCobrar);
             this.groupBox2.Controls.Add(this.chkCejas);
             this.groupBox2.Controls.Add(this.chkToalla);
@@ -258,6 +260,15 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cmbEmpleados
+            // 
+            this.cmbEmpleados.FormattingEnabled = true;
+            this.cmbEmpleados.Location = new System.Drawing.Point(60, 301);
+            this.cmbEmpleados.Name = "cmbEmpleados";
+            this.cmbEmpleados.Size = new System.Drawing.Size(121, 29);
+            this.cmbEmpleados.TabIndex = 13;
+            this.cmbEmpleados.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleados_SelectedIndexChanged);
+            // 
             // peluqueriaelcojo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -304,6 +315,7 @@
         private System.Windows.Forms.ComboBox cmbProductos;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.NumericUpDown numCantidad;
+        private System.Windows.Forms.ComboBox cmbEmpleados;
     }
 }
 
