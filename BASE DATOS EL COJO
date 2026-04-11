@@ -1,0 +1,175 @@
+USE [PeluqueriaElCojo]
+GO
+/****** Object:  Table [dbo].[Clientes]    Script Date: 4/11/2026 5:46:30 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Clientes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Telefono] [varchar](10) NOT NULL,
+	[Tipo] [int] NOT NULL,
+	[Visitas] [int] NOT NULL,
+	[FechaRegistro] [datetime] NOT NULL,
+	[Activo] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Empleados]    Script Date: 4/11/2026 5:46:30 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Empleados](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Apodo] [nvarchar](20) NULL,
+	[Cedula] [varchar](13) NOT NULL,
+	[Telefono] [varchar](10) NULL,
+	[Rol] [int] NOT NULL,
+	[SalarioBase] [decimal](10, 2) NOT NULL,
+	[PorcentajeComision] [decimal](5, 2) NOT NULL,
+	[FechaIngreso] [datetime] NOT NULL,
+	[VentasMes] [decimal](12, 2) NOT NULL,
+	[Activo] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Cedula] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FacturaDetalle]    Script Date: 4/11/2026 5:46:30 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FacturaDetalle](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FacturaId] [int] NOT NULL,
+	[ServicioId] [int] NOT NULL,
+	[Descripcion] [nvarchar](100) NOT NULL,
+	[Precio] [decimal](10, 2) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Facturas]    Script Date: 4/11/2026 5:46:30 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Facturas](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Fecha] [datetime] NOT NULL,
+	[ClienteId] [int] NOT NULL,
+	[EmpleadoId] [int] NOT NULL,
+	[Subtotal] [decimal](12, 2) NOT NULL,
+	[Descuento] [decimal](12, 2) NOT NULL,
+	[ITBIS] [decimal](12, 2) NOT NULL,
+	[Total] [decimal](12, 2) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Productos]    Script Date: 4/11/2026 5:46:30 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Productos](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Codigo] [varchar](20) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Categoria] [int] NOT NULL,
+	[Precio] [decimal](10, 2) NOT NULL,
+	[Costo] [decimal](10, 2) NOT NULL,
+	[Stock] [int] NOT NULL,
+	[StockMinimo] [int] NOT NULL,
+	[Activo] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Codigo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Servicios]    Script Date: 4/11/2026 5:46:30 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Servicios](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[PrecioBase] [decimal](10, 2) NOT NULL,
+	[DuracionMinutos] [int] NOT NULL,
+	[Activo] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Clientes] ADD  DEFAULT ((0)) FOR [Tipo]
+GO
+ALTER TABLE [dbo].[Clientes] ADD  DEFAULT ((0)) FOR [Visitas]
+GO
+ALTER TABLE [dbo].[Clientes] ADD  DEFAULT (getdate()) FOR [FechaRegistro]
+GO
+ALTER TABLE [dbo].[Clientes] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[Empleados] ADD  DEFAULT ((0)) FOR [Rol]
+GO
+ALTER TABLE [dbo].[Empleados] ADD  DEFAULT ((20000)) FOR [SalarioBase]
+GO
+ALTER TABLE [dbo].[Empleados] ADD  DEFAULT ((10)) FOR [PorcentajeComision]
+GO
+ALTER TABLE [dbo].[Empleados] ADD  DEFAULT (getdate()) FOR [FechaIngreso]
+GO
+ALTER TABLE [dbo].[Empleados] ADD  DEFAULT ((0)) FOR [VentasMes]
+GO
+ALTER TABLE [dbo].[Empleados] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[Facturas] ADD  DEFAULT (getdate()) FOR [Fecha]
+GO
+ALTER TABLE [dbo].[Facturas] ADD  DEFAULT ((0)) FOR [Descuento]
+GO
+ALTER TABLE [dbo].[Productos] ADD  DEFAULT ((6)) FOR [Categoria]
+GO
+ALTER TABLE [dbo].[Productos] ADD  DEFAULT ((0)) FOR [Stock]
+GO
+ALTER TABLE [dbo].[Productos] ADD  DEFAULT ((5)) FOR [StockMinimo]
+GO
+ALTER TABLE [dbo].[Productos] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[Servicios] ADD  DEFAULT ((20)) FOR [DuracionMinutos]
+GO
+ALTER TABLE [dbo].[Servicios] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[FacturaDetalle]  WITH CHECK ADD FOREIGN KEY([FacturaId])
+REFERENCES [dbo].[Facturas] ([Id])
+GO
+ALTER TABLE [dbo].[FacturaDetalle]  WITH CHECK ADD FOREIGN KEY([ServicioId])
+REFERENCES [dbo].[Servicios] ([Id])
+GO
+ALTER TABLE [dbo].[Facturas]  WITH CHECK ADD FOREIGN KEY([ClienteId])
+REFERENCES [dbo].[Clientes] ([Id])
+GO
+ALTER TABLE [dbo].[Facturas]  WITH CHECK ADD FOREIGN KEY([EmpleadoId])
+REFERENCES [dbo].[Empleados] ([Id])
+GO
