@@ -44,11 +44,14 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lstClientes = new System.Windows.Forms.ListBox();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbProductos = new System.Windows.Forms.ComboBox();
+            this.numCantidad = new System.Windows.Forms.NumericUpDown();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numNivel)).BeginInit();
             this.CLIENTES.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -156,6 +159,7 @@
             this.txtRecibo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtRecibo.Size = new System.Drawing.Size(471, 444);
             this.txtRecibo.TabIndex = 13;
+            this.txtRecibo.TextChanged += new System.EventHandler(this.txtRecibo_TextChanged);
             // 
             // lblTotal
             // 
@@ -168,7 +172,9 @@
             // 
             // CLIENTES
             // 
-            this.CLIENTES.Controls.Add(this.comboBox1);
+            this.CLIENTES.Controls.Add(this.btnAgregar);
+            this.CLIENTES.Controls.Add(this.numCantidad);
+            this.CLIENTES.Controls.Add(this.cmbProductos);
             this.CLIENTES.Controls.Add(this.cmbClientes);
             this.CLIENTES.Controls.Add(this.lstClientes);
             this.CLIENTES.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,13 +233,30 @@
             this.cmbClientes.TabIndex = 6;
             this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cmbProductos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(35, 318);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 36);
-            this.comboBox1.TabIndex = 7;
+            this.cmbProductos.FormattingEnabled = true;
+            this.cmbProductos.Location = new System.Drawing.Point(35, 318);
+            this.cmbProductos.Name = "cmbProductos";
+            this.cmbProductos.Size = new System.Drawing.Size(208, 36);
+            this.cmbProductos.TabIndex = 7;
+            // 
+            // numCantidad
+            // 
+            this.numCantidad.Location = new System.Drawing.Point(9, 382);
+            this.numCantidad.Name = "numCantidad";
+            this.numCantidad.Size = new System.Drawing.Size(120, 34);
+            this.numCantidad.TabIndex = 8;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(165, 372);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(127, 52);
+            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.Text = "AGREGAR";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
             // peluqueriaelcojo
             // 
@@ -256,6 +279,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,7 +301,9 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cmbClientes;
         private System.Windows.Forms.ListBox lstClientes;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbProductos;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.NumericUpDown numCantidad;
     }
 }
 

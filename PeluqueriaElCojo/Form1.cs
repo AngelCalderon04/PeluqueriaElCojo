@@ -19,6 +19,11 @@ namespace PeluqueriaElCojo
         private List<Servicio> _servicios = new List<Servicio>();
         private Cliente _clienteActual = null;
         private ClienteRepository _clienteRepo = new ClienteRepository();
+        private ProductoRepository _productoRepo = new ProductoRepository();
+        private List<string> _factura = new List<string>();
+        private decimal _total = 0;
+        private List<(Producto producto, int cantidad)> _productos = new List<(Producto, int)>();
+
 
         public peluqueriaelcojo()
         {
@@ -80,8 +85,13 @@ namespace PeluqueriaElCojo
         {
             decimal sub = 0;
 
+            // servicios
             foreach (Servicio s in _servicios)
                 sub += s.CalcularPrecio();
+
+            // 🔥 productos
+            foreach (var item in _productos)
+                sub += item.producto.Precio * item.cantidad;
 
             return sub * (1 - _clienteActual.ObtenerDescuento()) * 1.18m;
         }
@@ -100,10 +110,23 @@ namespace PeluqueriaElCojo
 
             decimal sub = 0;
 
+            // SWERVICIOS
             foreach (Servicio s in _servicios)
             {
                 sb.AppendLine(string.Format("║  {0,-27}║", s.GenerarLineaRecibo()));
                 sub += s.CalcularPrecio();
+            }
+
+            // 🔥 PRODUCTOS (AQUÍ ESTÁ LO NUEVO)
+            foreach (var item in _productos)
+            {
+                decimal subtotalProducto = item.producto.Precio * item.cantidad;
+
+                string linea = $"{item.producto.Nombre} x{item.cantidad} RD${subtotalProducto}";
+
+                sb.AppendLine(string.Format("║  {0,-27}║", linea));
+
+                sub += subtotalProducto; //  (sumar al total)
             }
 
             sb.AppendLine("╠═══════════════════════════════╣");
@@ -121,6 +144,8 @@ namespace PeluqueriaElCojo
             sb.AppendLine("      ¡Gracias por su visita!");
 
             return sb.ToString();
+
+
         }
 
         private void LimpiarChecks()
@@ -135,7 +160,10 @@ namespace PeluqueriaElCojo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
+            cmbProductos.DataSource = _productoRepo.ObtenerTodos();
             cmbClientes.DataSource = _clienteRepo.ObtenerTodos();
+
         }
 
         private void numNivel_ValueChanged(object sender, EventArgs e)
@@ -177,6 +205,30 @@ namespace PeluqueriaElCojo
 
                 lstClientes.Items.Add(_clienteActual); // agrega solo el seleccionado
             }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            
+
+            if (cmbProductos.SelectedItem == null)
+            {
+                MessageBox.Show("Selecciona un producto");
+                return;
+            }
+
+            Producto p = (Producto)cmbProductos.SelectedItem;
+            int cantidad = (int)numCantidad.Value;
+
+            _productos.Add((p, cantidad));
+
+            MessageBox.Show("Producto agregado");
+        }
+
+        private void txtRecibo_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

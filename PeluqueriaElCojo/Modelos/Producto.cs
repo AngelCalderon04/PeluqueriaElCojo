@@ -139,5 +139,7 @@ namespace PeluqueriaElCojo.Modelos
             return string.Format("[{0}] {1} - RD${2:N0} (Stock: {3})",
                 Codigo, Nombre, Precio, Stock);
         }
+
+       
     }
 }
