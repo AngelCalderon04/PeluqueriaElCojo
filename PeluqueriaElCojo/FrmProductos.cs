@@ -136,6 +136,11 @@ namespace PeluqueriaElCojo
                     productoActual.Stock = int.Parse(txtStock.Text);
                     productoActual.StockMinimo = int.Parse(txtStockMinimo.Text);
 
+                    productoActual.Categoria = (CategoriaProducto)cmbCategoria.SelectedItem;
+
+                    
+                    _repo.Actualizar(productoActual);
+
                     MessageBox.Show("Producto actualizado");
 
                     productoActual = null;
@@ -181,7 +186,8 @@ namespace PeluqueriaElCojo
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbCategoria.DataSource = Enum.GetValues(typeof(CategoriaProducto));
+          
+
 
         }
 
@@ -193,7 +199,8 @@ namespace PeluqueriaElCojo
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             CargarProductos();
-            CargarCategorias();
+           // CargarCategorias();
+            cmbCategoria.DataSource = Enum.GetValues(typeof(CategoriaProducto));
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -214,11 +221,13 @@ namespace PeluqueriaElCojo
 
             txtCodigo.Text = productoActual.Codigo;
             txtNombre.Text = productoActual.Nombre;
-            cmbCategoria.SelectedItem = productoActual.Categoria;
             txtPrecio.Text = productoActual.Precio.ToString();
             txtCosto.Text = productoActual.Costo.ToString();
             txtStock.Text = productoActual.Stock.ToString();
             txtStockMinimo.Text = productoActual.StockMinimo.ToString();
+
+
+            cmbCategoria.SelectedIndex = (int)productoActual.Categoria;
 
         }
 

@@ -40,21 +40,22 @@
             this.txtRecibo = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.CLIENTES = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lstClientes = new System.Windows.Forms.ListBox();
-            this.cmbClientes = new System.Windows.Forms.ComboBox();
-            this.cmbProductos = new System.Windows.Forms.ComboBox();
-            this.numCantidad = new System.Windows.Forms.NumericUpDown();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.cmbEmpleados = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.numCantidad = new System.Windows.Forms.NumericUpDown();
+            this.cmbProductos = new System.Windows.Forms.ComboBox();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
+            this.lstClientes = new System.Windows.Forms.ListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbEmpleados = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numNivel)).BeginInit();
             this.CLIENTES.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -189,8 +190,64 @@
             this.CLIENTES.TabStop = false;
             this.CLIENTES.Text = "CLIENTES";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 28);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Productos";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(116, 374);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(127, 35);
+            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.Text = "AGREGAR";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // numCantidad
+            // 
+            this.numCantidad.Location = new System.Drawing.Point(9, 375);
+            this.numCantidad.Name = "numCantidad";
+            this.numCantidad.Size = new System.Drawing.Size(101, 34);
+            this.numCantidad.TabIndex = 8;
+            // 
+            // cmbProductos
+            // 
+            this.cmbProductos.FormattingEnabled = true;
+            this.cmbProductos.Location = new System.Drawing.Point(6, 315);
+            this.cmbProductos.Name = "cmbProductos";
+            this.cmbProductos.Size = new System.Drawing.Size(262, 36);
+            this.cmbProductos.TabIndex = 7;
+            // 
+            // cmbClientes
+            // 
+            this.cmbClientes.FormattingEnabled = true;
+            this.cmbClientes.Location = new System.Drawing.Point(6, 52);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(231, 36);
+            this.cmbClientes.TabIndex = 6;
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
+            // 
+            // lstClientes
+            // 
+            this.lstClientes.FormattingEnabled = true;
+            this.lstClientes.ItemHeight = 28;
+            this.lstClientes.Location = new System.Drawing.Point(6, 132);
+            this.lstClientes.Name = "lstClientes";
+            this.lstClientes.Size = new System.Drawing.Size(230, 116);
+            this.lstClientes.TabIndex = 5;
+            this.lstClientes.SelectedIndexChanged += new System.EventHandler(this.lstClientes_SelectedIndexChanged);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.cmbEmpleados);
             this.groupBox2.Controls.Add(this.btnCobrar);
             this.groupBox2.Controls.Add(this.chkCejas);
@@ -207,6 +264,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SERVICIOS";
             // 
+            // cmbEmpleados
+            // 
+            this.cmbEmpleados.FormattingEnabled = true;
+            this.cmbEmpleados.Location = new System.Drawing.Point(14, 323);
+            this.cmbEmpleados.Name = "cmbEmpleados";
+            this.cmbEmpleados.Size = new System.Drawing.Size(217, 29);
+            this.cmbEmpleados.TabIndex = 13;
+            this.cmbEmpleados.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleados_SelectedIndexChanged);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lblTotal);
@@ -219,70 +285,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "FACTURA";
             // 
-            // lstClientes
-            // 
-            this.lstClientes.FormattingEnabled = true;
-            this.lstClientes.ItemHeight = 28;
-            this.lstClientes.Location = new System.Drawing.Point(6, 132);
-            this.lstClientes.Name = "lstClientes";
-            this.lstClientes.Size = new System.Drawing.Size(230, 116);
-            this.lstClientes.TabIndex = 5;
-            this.lstClientes.SelectedIndexChanged += new System.EventHandler(this.lstClientes_SelectedIndexChanged);
-            // 
-            // cmbClientes
-            // 
-            this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(6, 52);
-            this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(231, 36);
-            this.cmbClientes.TabIndex = 6;
-            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
-            // 
-            // cmbProductos
-            // 
-            this.cmbProductos.FormattingEnabled = true;
-            this.cmbProductos.Location = new System.Drawing.Point(6, 315);
-            this.cmbProductos.Name = "cmbProductos";
-            this.cmbProductos.Size = new System.Drawing.Size(208, 36);
-            this.cmbProductos.TabIndex = 7;
-            // 
-            // numCantidad
-            // 
-            this.numCantidad.Location = new System.Drawing.Point(9, 375);
-            this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(101, 34);
-            this.numCantidad.TabIndex = 8;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(116, 374);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(127, 35);
-            this.btnAgregar.TabIndex = 9;
-            this.btnAgregar.Text = "AGREGAR";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cmbEmpleados
-            // 
-            this.cmbEmpleados.FormattingEnabled = true;
-            this.cmbEmpleados.Location = new System.Drawing.Point(60, 301);
-            this.cmbEmpleados.Name = "cmbEmpleados";
-            this.cmbEmpleados.Size = new System.Drawing.Size(121, 29);
-            this.cmbEmpleados.TabIndex = 13;
-            this.cmbEmpleados.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleados_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 275);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 28);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Productos";
-            // 
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Orange;
@@ -294,6 +296,16 @@
             this.btnCerrar.Text = "CERRAR";
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 297);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 23);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Barbero ";
             // 
             // peluqueriaelcojo
             // 
@@ -314,11 +326,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numNivel)).EndInit();
             this.CLIENTES.ResumeLayout(false);
             this.CLIENTES.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,6 +358,7 @@
         private System.Windows.Forms.ComboBox cmbEmpleados;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label label2;
     }
 }
 

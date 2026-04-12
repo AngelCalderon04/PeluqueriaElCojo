@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Claims;
@@ -43,6 +44,8 @@ namespace PeluqueriaElCojo
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+
             try
             {
                 if (empleadoActual == null)
@@ -65,7 +68,9 @@ namespace PeluqueriaElCojo
                     empleadoActual.Telefono = txtTelefono.Text;
                     empleadoActual.Rol = (RolEmpleado)cmbRol.SelectedItem;
 
-                    // luego podemos hacer update completo
+                    // 🔥 ESTO ES LO QUE TE FALTABA
+                    _repo.Actualizar(empleadoActual);
+
                     MessageBox.Show("Empleado actualizado");
 
                     empleadoActual = null;
@@ -104,15 +109,39 @@ namespace PeluqueriaElCojo
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvEmpleados.CurrentRow == null) return;
+            if (empleadoActual == null)
+            {
+                MessageBox.Show("Primero selecciona un empleado y dale a EDITAR.");
+                return;
+            }
 
-            empleadoActual = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
+            using (SqlConnection con = new SqlConnection(@"Server=DESKTOP-5MDNF5H;Database=PeluqueriaElCojo;Trusted_Connection=True;"))
+            {
+                con.Open();
 
-            txtNombre.Text = empleadoActual.Nombre;
-            txtApodo.Text = empleadoActual.Apodo;
-            txtCedula.Text = empleadoActual.Cedula;
-            txtTelefono.Text = empleadoActual.Telefono;
-            cmbRol.SelectedItem = empleadoActual.Rol;
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE Empleados SET Nombre=@Nombre, Apodo=@Apodo, Cedula=@Cedula, Telefono=@Telefono, Rol=@Rol WHERE Id=@Id",
+                    con);
+
+                cmd.Parameters.AddWithValue("@Id", empleadoActual.Id);
+                cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                cmd.Parameters.AddWithValue("@Apodo", txtApodo.Text);
+                cmd.Parameters.AddWithValue("@Cedula", txtCedula.Text);
+                cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+
+                //  Convertir texto → número
+                int rol = cmbRol.Text == "Barbero" ? 1 : 2;
+                cmd.Parameters.AddWithValue("@Rol", rol);
+               
+
+                cmd.ExecuteNonQuery();
+            }
+
+            MessageBox.Show("Empleado actualizado correctamente ✅");
+
+            CargarEmpleados(); // refrescar tabla
+
+            empleadoActual = null; // limpiar selección
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
@@ -162,8 +191,8 @@ namespace PeluqueriaElCojo
         {
             string numeros = new string(txtTelefono.Text.Where(char.IsDigit).ToArray());
 
-            if (numeros.Length > 10)
-                numeros = numeros.Substring(0, 10);
+            if (numeros.Length > 12)
+                numeros = numeros.Substring(0, 12);
 
             string formato = "";
 
@@ -222,6 +251,11 @@ namespace PeluqueriaElCojo
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
     

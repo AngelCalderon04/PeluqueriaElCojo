@@ -119,5 +119,28 @@ namespace PeluqueriaElCojo.Datos
                 }
             }
         }
+
+        public void Actualizar(Empleado emp)
+        {
+            using (SqlConnection con = new SqlConnection(@"Server=DESKTOP-5MDNF5H;Database=PeluqueriaElCojo;Trusted_Connection=True;"))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE Empleados SET Nombre=@Nombre, Apodo=@Apodo, Cedula=@Cedula, Telefono=@Telefono, Rol=@Rol WHERE Id=@Id",
+                    con);
+
+                cmd.Parameters.AddWithValue("@Id", emp.Id);
+                cmd.Parameters.AddWithValue("@Nombre", emp.Nombre);
+                cmd.Parameters.AddWithValue("@Apodo", emp.Apodo);
+                cmd.Parameters.AddWithValue("@Cedula", emp.Cedula);
+                cmd.Parameters.AddWithValue("@Telefono", emp.Telefono);
+
+                // IMPORTANTE (porque tu BD usa INT)
+                cmd.Parameters.AddWithValue("@Rol", (int)emp.Rol);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

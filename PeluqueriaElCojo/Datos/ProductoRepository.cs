@@ -116,22 +116,15 @@ namespace PeluqueriaElCojo.Datos
 
         public void Actualizar(Producto p)
         {
-            using (SqlConnection conn = Conexion.ObtenerConexion())
+            using (SqlConnection con = new SqlConnection(@"Server=DESKTOP-5MDNF5H;Database=PeluqueriaElCojo;Trusted_Connection=True;"))
             {
-                conn.Open();
+                con.Open();
 
-                string query = @"UPDATE Productos SET 
-                            Codigo = @Codigo,
-                            Nombre = @Nombre,
-                            Categoria = @Categoria,
-                            Precio = @Precio,
-                            Costo = @Costo,
-                            Stock = @Stock,
-                            StockMinimo = @StockMinimo
-                         WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE Productos SET Codigo=@Codigo, Nombre=@Nombre, Categoria=@Categoria, Precio=@Precio, Costo=@Costo, Stock=@Stock, StockMinimo=@StockMinimo WHERE Id=@Id",
+                    con);
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-
+                cmd.Parameters.AddWithValue("@Id", p.Id);
                 cmd.Parameters.AddWithValue("@Codigo", p.Codigo);
                 cmd.Parameters.AddWithValue("@Nombre", p.Nombre);
                 cmd.Parameters.AddWithValue("@Categoria", (int)p.Categoria);
@@ -139,7 +132,6 @@ namespace PeluqueriaElCojo.Datos
                 cmd.Parameters.AddWithValue("@Costo", p.Costo);
                 cmd.Parameters.AddWithValue("@Stock", p.Stock);
                 cmd.Parameters.AddWithValue("@StockMinimo", p.StockMinimo);
-                cmd.Parameters.AddWithValue("@Id", p.Id);
 
                 cmd.ExecuteNonQuery();
             }
