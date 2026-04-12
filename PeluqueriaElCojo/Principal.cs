@@ -15,6 +15,7 @@ namespace PeluqueriaElCojo
         public Principal()
         {
             InitializeComponent();
+            FormHelper.PosicionFija(this);
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

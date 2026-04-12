@@ -29,6 +29,7 @@ namespace PeluqueriaElCojo
         public peluqueriaelcojo()
         {
             InitializeComponent();
+            FormHelper.PosicionFija(this);
 
 
         }

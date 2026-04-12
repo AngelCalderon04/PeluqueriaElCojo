@@ -21,6 +21,7 @@ namespace PeluqueriaElCojo
         public FrmClientes()
         {
             InitializeComponent();
+            FormHelper.PosicionFija(this);
         }
 
         private void CargarClientes()

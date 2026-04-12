@@ -22,6 +22,7 @@ namespace PeluqueriaElCojo
         public FrmEmpleados()
         {
             InitializeComponent();
+            FormHelper.PosicionFija(this);
         }
 
         private void CargarEmpleados()

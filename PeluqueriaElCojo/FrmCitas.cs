@@ -22,6 +22,7 @@ namespace PeluqueriaElCojo
         public FrmCitas()
         {
             InitializeComponent();
+            FormHelper.PosicionFija(this);
         }
 
         private void label1_Click(object sender, EventArgs e)
