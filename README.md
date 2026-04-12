@@ -1,59 +1,59 @@
-# PeluquerÌa El Cojo - Sistema de GestiÛn
+# Peluquer√≠a El Cojo - Sistema de Gesti√≥n
 
-## InformaciÛn del Estudiante
-- **Nombre:** ¡ngel Luis CalderÛn  
-- **MatrÌcula:** [Tu matrÌcula]  
-- **Asignatura:** ISW-123 ProgramaciÛn Media  
+## Informaci√≥n del Estudiante
+- **Nombre:** √Ångel Luis Calder√≥n  
+- **Matr√≠cula:** 2024-0380  
+- **Asignatura:** ISW-123 Programaci√≥n Media  
 - **Profesor:** Ing. Ivan Zorrilla  
 
 ---
 
-## DescripciÛn
-Sistema de gestiÛn desarrollado en C# con Windows Forms para la administraciÛn de la PeluquerÌa "El Cojo".  
-Permite gestionar clientes, empleados, productos, citas y facturaciÛn en un entorno organizado y funcional, simulando un flujo real de negocio.
+## Descripci√≥n
+Sistema de gesti√≥n desarrollado en C# con Windows Forms para la administraci√≥n de la Peluquer√≠a "El Cojo".  
+Permite gestionar clientes, empleados, productos, citas y facturaci√≥n en un entorno organizado y funcional, simulando un flujo real de negocio.
 
-El sistema est· orientado a mejorar el control de las operaciones diarias, facilitando el registro de servicios, el c·lculo de facturas y la organizaciÛn de citas.
+El sistema est√° orientado a mejorar el control de las operaciones diarias, facilitando el registro de servicios, el c√°lculo de facturas y la organizaci√≥n de citas.
 
 ---
 
 ## Funcionalidades Principales
-- GestiÛn de clientes (registro, visualizaciÛn y selecciÛn)
-- GestiÛn de empleados (barberos)
-- GestiÛn de productos (control de inventario b·sico)
+- Gesti√≥n de clientes (registro, visualizaci√≥n y selecci√≥n)
+- Gesti√≥n de empleados (barberos)
+- Gesti√≥n de productos (control de inventario b√°sico)
 - Registro de citas con cliente, barbero, fecha y hora
-- Sistema de facturaciÛn con:
+- Sistema de facturaci√≥n con:
   - Servicios
   - Productos
   - Descuento por tipo de cliente
-  - C·lculo de ITBIS
-- GeneraciÛn de recibo en formato visual
-- SelecciÛn de barbero responsable del servicio
+  - C√°lculo de ITBIS
+- Generaci√≥n de recibo en formato visual
+- Selecci√≥n de barbero responsable del servicio
 
 ---
 
 ## Conceptos Implementados
-- EncapsulaciÛn (uso de propiedades privadas con validaciones)
+- Encapsulaci√≥n (uso de propiedades privadas con validaciones)
 - Herencia (clases derivadas de Servicio)
-- Polimorfismo (uso de mÈtodos como CalcularPrecio en diferentes servicios)
-- AbstracciÛn (uso de interfaces como IFacturable)
-- Listas genÈricas (List<T>)
-- ProgramaciÛn orientada a objetos
+- Polimorfismo (uso de m√©todos como CalcularPrecio en diferentes servicios)
+- Abstracci√≥n (uso de interfaces como IFacturable)
+- Listas gen√©ricas (List<T>)
+- Programaci√≥n orientada a objetos
 - Manejo de eventos en Windows Forms
-- SeparaciÛn de responsabilidades (Modelos, Datos, UI)
+- Separaci√≥n de responsabilidades (Modelos, Datos, UI)
 
 ---
 
 ## Estructura del Proyecto
-El proyecto est· organizado en las siguientes capas:
+El proyecto est√° organizado en las siguientes capas:
 
 - **Modelos:** Clases principales como Cliente, Empleado, Producto, Servicio y Cita  
-- **Datos:** Repositorios para manejo de informaciÛn  
-- **Formularios:** Interfaces gr·ficas (Clientes, Empleados, Productos, Citas, FacturaciÛn, Principal)  
-- **Utilidades:** Validaciones y generaciÛn de reportes  
+- **Datos:** Repositorios para manejo de informaci√≥n  
+- **Formularios:** Interfaces gr√°ficas (Clientes, Empleados, Productos, Citas, Facturaci√≥n, Principal)  
+- **Utilidades:** Validaciones y generaci√≥n de reportes  
 
 ---
 
-## TecnologÌas Utilizadas
+## Tecnolog√≠as Utilizadas
 - Lenguaje: C#  
 - Framework: .NET (Windows Forms)  
 - IDE: Visual Studio  
@@ -62,8 +62,8 @@ El proyecto est· organizado en las siguientes capas:
 
 ## Instrucciones de Uso
 1. Ejecutar el proyecto desde Visual Studio  
-2. Utilizar el men˙ principal para acceder a cada mÛdulo  
+2. Utilizar el men√∫ principal para acceder a cada m√≥dulo  
 3. Registrar clientes, empleados y productos  
 4. Crear citas asignando cliente y barbero  
-5. Realizar facturaciÛn seleccionando servicios y productos  
+5. Realizar facturaci√≥n seleccionando servicios y productos  
 6. Visualizar el total y el recibo generado 
